@@ -14,7 +14,7 @@ app.listen(process.env.PORT || PORT, () => {
 });
 
 // GET all students or by query parameter (filter by id)
-app.get('/api/student', async (req, res) => {
+app.get('/student', async (req, res) => {
     try {
         if (req.query.id) {
             // Query student by id: http://localhost:4000/student?id=1
@@ -30,7 +30,7 @@ app.get('/api/student', async (req, res) => {
         const students = await sql`SELECT * FROM Student ORDER BY Id;`;
         res.json(students.rows);
     } catch (err) {
-        res.status(500).json({ error: 'An error occurred while fetching students' });
+        res.status(500).json({ error: err });
     }
 });
 
