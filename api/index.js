@@ -30,7 +30,7 @@ app.get('/student', async (req, res) => {
         const students = await sql`SELECT * FROM Student ORDER BY Id;`;
         res.json(students.rows);
     } catch (err) {
-        res.status(500).json({ error: err });
+        res.status(500).json({ error: 'An error occurred while fetching the student' });
     }
 });
 
