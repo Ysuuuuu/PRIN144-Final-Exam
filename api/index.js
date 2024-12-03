@@ -35,7 +35,7 @@ app.get('/student', async (req, res) => {
 });
 
 // GET specific student by ID
-app.get('/api/student/:id', async (req, res) => {
+app.get('/student/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const student = await sql`SELECT * FROM Student WHERE Id = ${id};`;
@@ -50,7 +50,7 @@ app.get('/api/student/:id', async (req, res) => {
 });
 
 // POST new student
-app.post('/api/student', async (req, res) => {
+app.post('/student', async (req, res) => {
     const { givenName, familyName, yearLevel, course, section } = req.body;
 
     if (!givenName || !familyName || !yearLevel || !course || !section) {
@@ -70,7 +70,7 @@ app.post('/api/student', async (req, res) => {
 });
 
 // PUT update student by ID
-app.put('/api/student/:id', async (req, res) => {
+app.put('/student/:id', async (req, res) => {
     const id = req.params.id;
     const { givenName, familyName, yearLevel, course, section } = req.body;
 
@@ -99,7 +99,7 @@ app.put('/api/student/:id', async (req, res) => {
 });
 
 // DELETE student by ID
-app.delete('/api/student/:id', async (req, res) => {
+app.delete('/student/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const result = await sql`DELETE FROM Student WHERE Id = ${id} RETURNING id;`;
