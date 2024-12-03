@@ -113,4 +113,42 @@ app.delete('/student/:id', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    const html = `
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                        background: linear-gradient(135deg, #e6f7e0 0%, #c0e4c8 100%);
+                    }
+                    .container {
+                        background: white;
+                        padding: 2rem 4rem;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        border: 2px solid #28a745; /* Green border */
+                    }
+                    h1 {
+                        color: #28a745; /* Green text color */
+                        text-align: center;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>PRIN144-Final-Exam: RAMOS SYUTO</h1>
+                </div>
+            </body>
+        </html>
+    `;
+    res.send(html);
+});
+
 module.exports = app;
